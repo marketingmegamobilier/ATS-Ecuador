@@ -1,0 +1,240 @@
+# ============================================
+# GITIGNORE PRINCIPAL - PROYECTO ATS
+# Sistema de Gestión de Anexo Transaccional
+# ============================================
+
+# ==================
+# ARCHIVOS SENSIBLES
+# ==================
+# NUNCA subir credenciales o configuración local
+.env
+.env.local
+.env.production
+*.key
+*.pem
+*.p12
+secrets/
+
+# ==================
+# CARPETA .agent
+# ==================
+# Archivos de configuración del agente de desarrollo
+.agent/
+
+# ==================
+# BASES DE DATOS
+# ==================
+# SQLite databases (generadas localmente)
+*.db
+*.sqlite
+*.sqlite3
+ats.db
+backend/ats.db
+
+# ==================
+# PYTHON / BACKEND
+# ==================
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+.venv/
+backend/venv/
+backend/env/
+
+# Cache de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribución / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# Alembic
+# alembic/versions/*.py  # Descomentar si no quieres versionado de migraciones
+
+# ==================
+# NODE.JS / FRONTEND
+# ==================
+
+# Dependencias
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Build de producción
+frontend/build/
+frontend/dist/
+
+# Archivos de caché
+.npm
+.eslintcache
+.stylelintcache
+
+# Archivos locales de Next.js (si se usa)
+.next/
+.nuxt/
+out/
+
+# Gatsby files (si se usa)
+.cache/
+public/
+
+# ==================
+# EDITORES E IDEs
+# ==================
+
+# Visual Studio Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+*.code-workspace
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ==================
+# SISTEMA OPERATIVO
+# ==================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ==================
+# ARCHIVOS TEMPORALES
+# ==================
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*~
+*.log
+logs/
+*.swp
+
+# ==================
+# ARCHIVOS DE TEST
+# ==================
+# Archivos XML de prueba (opcional, descomentar si quieres ignorarlos)
+# test_xml/
+# *.test.xml
+
+# ==================
+# OTROS
+# ==================
+
+# Certificados de desarrollo
+*.crt
+*.key
+
+# Archivos comprimidos temporales
+*.zip
+*.tar.gz
+*.rar
+
+# Documentación generada
+docs/_build/
+site/
+
+# ==================
+# MANTENER EJEMPLOS
+# ==================
+# IMPORTANTE: Estos archivos SÍ se suben como ejemplos
+!.env.example
+!backend/.env.example
+!frontend/.env.example

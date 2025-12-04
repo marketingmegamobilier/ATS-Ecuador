@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="iva">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TipoIDInformante" type="xs:string"/>
+        <xs:element name="IdInformante" type="xs:string"/>
+        <xs:element name="razonSocial" type="xs:string"/>
+        <xs:element name="Anio" type="xs:integer"/>
+        <xs:element name="Mes" type="xs:string"/>
+        <xs:element name="numEstabRuc" type="xs:string" minOccurs="0"/>
+        <xs:element name="totalVentas" type="xs:decimal"/>
+        <xs:element name="codigoOperativo" type="xs:string"/>
+        
+        <xs:element name="compras" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="detalleCompras" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="codSustento" type="xs:string"/>
+                    <xs:element name="tpIdProv" type="xs:string"/>
+                    <xs:element name="idProv" type="xs:string"/>
+                    <xs:element name="tipoComprobante" type="xs:string"/>
+                    <xs:element name="parteRel" type="xs:string" minOccurs="0"/>
+                    <xs:element name="fechaRegistro" type="xs:string"/>
+                    <xs:element name="establecimiento" type="xs:string"/>
+                    <xs:element name="puntoEmision" type="xs:string"/>
+                    <xs:element name="secuencial" type="xs:string"/>
+                    <xs:element name="fechaEmision" type="xs:string"/>
+                    <xs:element name="autorizacion" type="xs:string"/>
+                    <xs:element name="baseNoGraIva" type="xs:decimal"/>
+                    <xs:element name="baseImponible" type="xs:decimal"/>
+                    <xs:element name="baseImpGrav" type="xs:decimal"/>
+                    <xs:element name="baseImpExe" type="xs:decimal"/>
+                    <xs:element name="montoIce" type="xs:decimal"/>
+                    <xs:element name="montoIva" type="xs:decimal"/>
+                    <xs:element name="valRetBien10" type="xs:decimal"/>
+                    <xs:element name="valRetServ20" type="xs:decimal"/>
+                    <xs:element name="valorRetBienes" type="xs:decimal"/>
+                    <xs:element name="valRetServ50" type="xs:decimal"/>
+                    <xs:element name="valorRetServicios" type="xs:decimal"/>
+                    <xs:element name="valRetServ100" type="xs:decimal"/>
+                    <xs:element name="valorRetencionNc" type="xs:decimal" minOccurs="0"/>
+                    <xs:element name="totbasesImpReemb" type="xs:decimal"/>
+                    <xs:element name="pagoExterior">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="pagoLocExt" type="xs:string"/>
+                          <xs:element name="paisEfecPago" type="xs:string" minOccurs="0"/>
+                          <xs:element name="aplicConvDobTrib" type="xs:string" minOccurs="0"/>
+                          <xs:element name="pagExtSujRetNorLeg" type="xs:string" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="formasDePago" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="formaPago" type="xs:string" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="ventas" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="detalleVentas" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="tpIdCliente" type="xs:string"/>
+                    <xs:element name="idCliente" type="xs:string"/>
+                    <xs:element name="parteRelVtas" type="xs:string" minOccurs="0"/>
+                    <xs:element name="tipoComprobante" type="xs:string"/>
+                    <xs:element name="tipoEmision" type="xs:string"/>
+                    <xs:element name="numeroComprobantes" type="xs:integer"/>
+                    <xs:element name="baseNoGraIva" type="xs:decimal"/>
+                    <xs:element name="baseImponible" type="xs:decimal"/>
+                    <xs:element name="baseImpGrav" type="xs:decimal"/>
+                    <xs:element name="montoIva" type="xs:decimal"/>
+                    <xs:element name="montoIce" type="xs:decimal"/>
+                    <xs:element name="valorRetIva" type="xs:decimal"/>
+                    <xs:element name="valorRetRenta" type="xs:decimal"/>
+                    <xs:element name="formasDePago" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="formaPago" type="xs:string" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="ventasEstablecimiento" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ventaEst" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="codEstab" type="xs:string"/>
+                    <xs:element name="ventasEstab" type="xs:decimal"/>
+                    <xs:element name="ivaComp" type="xs:decimal" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
