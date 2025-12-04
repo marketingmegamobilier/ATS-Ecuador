@@ -60,7 +60,7 @@ Antes de comenzar, asegúrate de tener instalado:
 ### Paso 1: Clonar el Repositorio
 
 ```bash
-git clone https://github.com/jonavez/ATS.git
+git clone https://github.com/jonavez/ATS-Ecuador.git
 cd ATS
 ```
 
@@ -327,8 +327,8 @@ CORS_ORIGINS=http://localhost:3000
 
 ### ¿Cómo puedes ayudar?
 
-1. **Reporta Bugs**: Si encuentras algún error, [abre un issue](https://github.com/jonavez/ATS/issues/new)
-2. **Sugiere Funcionalidades**: ¿Tienes ideas para mejorar el sistema? [Compártelas aquí](https://github.com/jonavez/ATS/issues/new)
+1. **Reporta Bugs**: Si encuentras algún error, [abre un issue](https://github.com/jonavez/ATS-Ecuador/issues/new)
+2. **Sugiere Funcionalidades**: ¿Tienes ideas para mejorar el sistema? [Compártelas aquí](https://github.com/jonavez/ATS-Ecuador/issues/new)
 3. **Mejora la Documentación**: Si algo no está claro, ayuda a mejorarlo
 4. **Contribuye con Código**: 
    - Haz fork del proyecto
@@ -348,7 +348,7 @@ CORS_ORIGINS=http://localhost:3000
 - [ ] Backup automático de la base de datos
 - [ ] Modo oscuro en la interfaz
 
-**¿Tienes más ideas?** [Déjanos saber en la sección de Issues](https://github.com/jonavez/ATS/issues)
+**¿Tienes más ideas?** [Déjanos saber en la sección de Issues](https://github.com/jonavez/ATS-Ecuador/issues)
 
 ---
 
@@ -360,7 +360,7 @@ Si este proyecto te ha sido útil, considera apoyarlo:
 
 Si el sistema te ayudó a agilizar tu declaración del ATS, **dale una estrella en GitHub**. Esto ayuda a que más personas descubran el proyecto.
 
-[![GitHub Stars](https://img.shields.io/github/stars/jonavez/ATS?style=social)](https://github.com/jonavez/ATS/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/jonavez/ATS-Ecuador?style=social)](https://github.com/jonavez/ATS-Ecuador/stargazers)
 
 ### Comparte el Proyecto 📢
 
