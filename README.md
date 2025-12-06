@@ -1,7 +1,7 @@
 # Sistema de Gestión de ATS (Anexo Transaccional Simplificado)
 
-![GitHub Stars](https://img.shields.io/github/stars/jonavez/ATS?style=social)
-![GitHub Forks](https://img.shields.io/github/forks/jonavez/ATS?style=social)
+![GitHub Stars](https://img.shields.io/github/stars/jonavez/ATS-Ecuador?style=social)
+![GitHub Forks](https://img.shields.io/github/forks/jonavez/ATS-Ecuador?style=social)
 
 Sistema completo para gestionar y generar el Anexo Transaccional Simplificado (ATS) del SRI de Ecuador. Carga facturas de compra, venta y retenciones en formato XML, valida la información automáticamente y genera el archivo ATS listo para ser enviado al Servicio de Rentas Internas.
 
@@ -61,7 +61,7 @@ Antes de comenzar, asegúrate de tener instalado:
 
 ```bash
 git clone https://github.com/jonavez/ATS-Ecuador.git
-cd ATS
+cd ATS-Ecuador
 ```
 
 ### Paso 2: Configuración del Backend
