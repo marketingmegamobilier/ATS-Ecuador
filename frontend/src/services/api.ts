@@ -1,7 +1,13 @@
 import axios from 'axios';
 import { ProcessResponse, ATSData } from '../types';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+declare global {
+  interface Window {
+    __ENV__?: { REACT_APP_API_URL: string };
+  }
+}
+
+const API_BASE_URL = window.__ENV__?.REACT_APP_API_URL || process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 const api = axios.create({
   baseURL: API_BASE_URL,

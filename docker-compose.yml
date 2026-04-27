@@ -55,9 +55,9 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-      args:
-        REACT_APP_API_URL: ${REACT_APP_API_URL:?REACT_APP_API_URL is required}
     restart: unless-stopped
+    environment:
+      REACT_APP_API_URL: ${REACT_APP_API_URL:?REACT_APP_API_URL is required}
     depends_on:
       - backend
     networks:
