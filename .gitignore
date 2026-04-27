@@ -127,7 +127,6 @@ out/
 
 # Gatsby files (si se usa)
 .cache/
-public/
 
 # ==================
 # EDITORES E IDEs
