@@ -1,13 +1,7 @@
 import axios from 'axios';
 import { ProcessResponse, ATSData } from '../types';
 
-declare global {
-  interface Window {
-    __ENV__?: { REACT_APP_API_URL: string };
-  }
-}
-
-const API_BASE_URL = window.__ENV__?.REACT_APP_API_URL || process.env.REACT_APP_API_URL || 'http://localhost:8000';
+const API_BASE_URL = 'http://backend-sri-ats-0wgkap-64803a-217-216-80-123.traefik.me';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
