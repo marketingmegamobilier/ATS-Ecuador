@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ProcessResponse, ATSData } from '../types';
 
-const API_BASE_URL = 'http://backend-sri-ats-pdnetl-22ecf7-217-216-80-123.traefik.me';
+const API_BASE_URL = 'http://backend-sri-ats-pdnetl-9310cb-217-216-80-123.traefik.me';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
