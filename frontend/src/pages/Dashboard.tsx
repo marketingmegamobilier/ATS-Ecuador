@@ -6,7 +6,7 @@ import {
     TextField, DialogActions, FormControl, InputLabel, Select, MenuItem
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../services/api';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -41,7 +41,7 @@ const Dashboard: React.FC = () => {
 
     const fetchPeriodos = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/periodos/');
+            const response = await api.get('/periodos/');
             setPeriodos(response.data);
         } catch (error) {
             console.error('Error fetching periodos:', error);
@@ -50,7 +50,7 @@ const Dashboard: React.FC = () => {
 
     const handleCreate = async () => {
         try {
-            await axios.post('http://localhost:8000/periodos/', newPeriodo);
+            await api.post('/periodos/', newPeriodo);
             setOpen(false);
             fetchPeriodos();
         } catch (error) {
@@ -62,7 +62,7 @@ const Dashboard: React.FC = () => {
     const handleDelete = async (id: number) => {
         if (!window.confirm('¿Estás seguro de eliminar este periodo y toda su información?')) return;
         try {
-            await axios.delete(`http://localhost:8000/periodos/${id}`);
+            await api.delete(`/periodos/${id}`);
             fetchPeriodos();
         } catch (error) {
             console.error('Error deleting periodo:', error);
@@ -73,7 +73,7 @@ const Dashboard: React.FC = () => {
     const handleBulkDelete = async () => {
         if (!window.confirm(`¿Estás seguro de eliminar ${selectedIds.length} periodos seleccionados?`)) return;
         try {
-            await axios.delete('http://localhost:8000/periodos/batch/delete', {
+            await api.delete('/periodos/batch/delete', {
                 data: { ids: selectedIds }
             });
             setSelectedIds([]);

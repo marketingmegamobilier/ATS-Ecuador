@@ -10,7 +10,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ErrorIcon from '@mui/icons-material/Error';
 import WarningIcon from '@mui/icons-material/Warning';
 import InfoIcon from '@mui/icons-material/Info';
-import axios from 'axios';
+import api from '../services/api';
 
 interface ValidacionResult {
     valido: boolean;
@@ -35,9 +35,9 @@ const ATSValidator: React.FC = () => {
         const fetchATSData = async () => {
             try {
                 const [periodoRes, comprasRes, ventasRes] = await Promise.all([
-                    axios.get(`http://localhost:8000/periodos/${id}`),
-                    axios.get(`http://localhost:8000/transacciones/periodo/${id}/compras`),
-                    axios.get(`http://localhost:8000/transacciones/periodo/${id}/ventas`)
+                    api.get(`periodos/${id}`),
+                    api.get(`transacciones/periodo/${id}/compras`),
+                    api.get(`transacciones/periodo/${id}/ventas`)
                 ]);
 
                 const periodo = periodoRes.data;

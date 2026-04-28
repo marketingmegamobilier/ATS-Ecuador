@@ -10,7 +10,7 @@ import ErrorIcon from '@mui/icons-material/Error';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useDropzone } from 'react-dropzone';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../services/api';
 
 interface ValidationError {
     tipo: string;
@@ -61,7 +61,7 @@ const ATSFileValidator: React.FC = () => {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('http://localhost:8000/validation/validate-file', formData, {
+            const response = await api.post('validation/validate-file', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setResult(response.data);

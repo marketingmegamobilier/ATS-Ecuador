@@ -15,6 +15,7 @@ import {
   Archive,
 } from '@mui/icons-material';
 import { ATSData } from '../types';
+import api from '../services/api';
 
 interface XMLGeneratorProps {
   atsData: ATSData;
@@ -50,7 +51,7 @@ const XMLGenerator: React.FC<XMLGeneratorProps> = ({ atsData }) => {
   }
 
   const generateXML = async (atsData: ATSData): Promise<Blob> => {
-    const response = await fetch('http://localhost:8000/generate-xml', {
+    const response = await fetch(`${api.defaults.baseURL}/generate-xml`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -67,7 +68,7 @@ const XMLGenerator: React.FC<XMLGeneratorProps> = ({ atsData }) => {
   };
 
   const generateZIP = async (atsData: ATSData): Promise<Blob> => {
-    const response = await fetch('http://localhost:8000/generate-xml-zip', {
+    const response = await fetch(`${api.defaults.baseURL}/generate-xml-zip`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

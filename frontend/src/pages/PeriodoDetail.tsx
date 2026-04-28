@@ -6,7 +6,7 @@ import {
     Stepper, Step, StepLabel, Tooltip, IconButton, Chip, Divider,
     CircularProgress, Alert, Snackbar, Stack
 } from '@mui/material';
-import axios from 'axios';
+import api from '../services/api';
 import FileUploader from '../components/FileUploader';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -58,7 +58,7 @@ const PeriodoDetail: React.FC = () => {
 
     const fetchPeriodo = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/periodos/${id}`);
+            const response = await api.get(`periodos/${id}`);
             setPeriodo(response.data);
         } catch (error) {
             console.error('Error fetching periodo:', error);
@@ -67,7 +67,7 @@ const PeriodoDetail: React.FC = () => {
 
     const fetchCompras = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/transacciones/periodo/${id}/compras`);
+            const response = await api.get(`transacciones/periodo/${id}/compras`);
             setCompras(response.data);
         } catch (error) {
             console.error('Error fetching compras:', error);
@@ -76,7 +76,7 @@ const PeriodoDetail: React.FC = () => {
 
     const fetchVentas = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/transacciones/periodo/${id}/ventas`);
+            const response = await api.get(`transacciones/periodo/${id}/ventas`);
             setVentas(response.data);
         } catch (error) {
             console.error('Error fetching ventas:', error);
@@ -85,7 +85,7 @@ const PeriodoDetail: React.FC = () => {
 
     const fetchRetenciones = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/transacciones/periodo/${id}/retenciones`);
+            const response = await api.get(`transacciones/periodo/${id}/retenciones`);
             setRetenciones(response.data);
         } catch (error) {
             console.error('Error fetching retenciones:', error);
@@ -102,7 +102,7 @@ const PeriodoDetail: React.FC = () => {
     const handleDeleteCompra = async (id: number) => {
         if (!window.confirm('¿Estás seguro de eliminar esta factura?')) return;
         try {
-            await axios.delete(`http://localhost:8000/transacciones/compras/${id}`);
+            await api.delete(`transacciones/compras/${id}`);
             fetchCompras();
         } catch (error) {
             console.error('Error deleting compra:', error);
@@ -113,7 +113,7 @@ const PeriodoDetail: React.FC = () => {
     const handleDeleteRetencion = async (id: number) => {
         if (!window.confirm('¿Estás seguro de eliminar esta retención?')) return;
         try {
-            await axios.delete(`http://localhost:8000/transacciones/retenciones/${id}`);
+            await api.delete(`transacciones/retenciones/${id}`);
             fetchRetenciones();
         } catch (error) {
             console.error('Error deleting retencion:', error);
@@ -124,7 +124,7 @@ const PeriodoDetail: React.FC = () => {
     const handleDeleteVenta = async (id: number) => {
         if (!window.confirm('¿Estás seguro de eliminar esta factura de venta?')) return;
         try {
-            await axios.delete(`http://localhost:8000/transacciones/ventas/${id}`);
+            await api.delete(`transacciones/ventas/${id}`);
             fetchVentas();
         } catch (error) {
             console.error('Error deleting venta:', error);
