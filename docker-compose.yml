@@ -39,6 +39,8 @@ services:
       MAX_FILE_SIZE: ${MAX_FILE_SIZE:-10}
       UPLOAD_DIR: /app/uploads
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      ADMIN_USER: ${ADMIN_USER:?ADMIN_USER is required}
+      ADMIN_PASS: ${ADMIN_PASS:?ADMIN_PASS is required}
     volumes:
       - uploads_data:/app/uploads
       - logs_data:/app/logs
