@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Paper, TextField, Button, Typography, Box, Alert } from '@mui/material';
 import { useAuth } from '../context/AuthContext';
 
 const Login: React.FC = () => {
   const { login } = useAuth();
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -15,6 +17,7 @@ const Login: React.FC = () => {
     setLoading(true);
     try {
       await login(username, password);
+      navigate('/');
     } catch {
       setError('Usuario o contraseña incorrectos');
     } finally {
