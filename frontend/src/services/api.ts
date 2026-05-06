@@ -10,6 +10,17 @@ const api = axios.create({
   },
 });
 
+api.interceptors.response.use(
+  (response: any) => response,
+  (error: any) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem('auth_token');
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
+);
+
 export const uploadTxtFile = async (file: File, rucEmpresa: string, razonSocial: string): Promise<ProcessResponse> => {
   const formData = new FormData();
   formData.append('file', file);

@@ -1,5 +1,5 @@
 import os
-from fastapi import FastAPI, File, UploadFile, HTTPException, Form
+from fastapi import FastAPI, File, UploadFile, HTTPException, Form, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 from datetime import datetime
@@ -18,6 +18,7 @@ from .models import sql_models # Importar modelos para que se registren en Base
 Base.metadata.create_all(bind=engine)
 
 from .routers import periodos, transacciones, validation
+from .auth import router as auth_router, verify_token
 
 app = FastAPI(
     title="Generador ATS - SRI Ecuador",
@@ -35,9 +36,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(periodos.router)
-app.include_router(transacciones.router)
-app.include_router(validation.router)
+app.include_router(auth_router)
+app.include_router(periodos.router, dependencies=[Depends(verify_token)])
+app.include_router(transacciones.router, dependencies=[Depends(verify_token)])
+app.include_router(validation.router, dependencies=[Depends(verify_token)])
 
 # Instanciar servicios
 xml_processor = XMLProcessor()
@@ -53,6 +55,7 @@ async def root():
 
 @app.post("/upload-xml-facturas")
 async def upload_xml_facturas(
+    _: str = Depends(verify_token),
     files: List[UploadFile] = File(...),
     ruc_empresa: str = Form(...),
     razon_social_empresa: str = Form(...)
@@ -100,7 +103,7 @@ async def upload_xml_facturas(
         raise HTTPException(status_code=400, detail=f"Error procesando facturas XML: {str(e)}")
 
 @app.post("/generate-xml")
-async def generate_xml(ats_data: dict):
+async def generate_xml(ats_data: dict, _: str = Depends(verify_token)):
     """
     Endpoint para generar solo XML del ATS
     """
@@ -123,7 +126,7 @@ async def generate_xml(ats_data: dict):
         raise HTTPException(status_code=400, detail=f"Error generando XML: {str(e)}")
 
 @app.post("/generate-xml-zip")
-async def generate_xml_zip(ats_data: dict):
+async def generate_xml_zip(ats_data: dict, _: str = Depends(verify_token)):
     """
     Endpoint para generar XML del ATS comprimido en ZIP
     """
