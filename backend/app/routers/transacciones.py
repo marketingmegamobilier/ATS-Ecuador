@@ -334,8 +334,8 @@ def generar_ats_zip(periodo_id: int, db: Session = Depends(get_db)):
         ))
     
     ats_data = ATSData(
-        idInformante=periodo.empresa.ruc,
-        razonSocial=periodo.empresa.razon_social,
+        idInformante=periodo.empresa.ruc.strip(),
+        razonSocial=periodo.empresa.razon_social.strip(),
         anio=periodo.anio,
         mes=periodo.mes,
         numEstabRuc="001",
@@ -472,8 +472,8 @@ def generar_ats_xml_solo(periodo_id: int, db: Session = Depends(get_db)):
         ))
     
     ats_data = ATSData(
-        idInformante=periodo.empresa.ruc,
-        razonSocial=periodo.empresa.razon_social,
+        idInformante=periodo.empresa.ruc.strip(),
+        razonSocial=periodo.empresa.razon_social.strip(),
         anio=periodo.anio,
         mes=periodo.mes,
         numEstabRuc="001",
