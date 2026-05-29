@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ProcessResponse, ATSData } from '../types';
 
-const API_BASE_URL = 'https://ats-backend.megamobilier.com';
+const API_BASE_URL = (window as any).__ENV__?.REACT_APP_API_URL || '/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
